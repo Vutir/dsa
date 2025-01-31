@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sky Black</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: url('https://source.unsplash.com/1920x1080/?universe,space') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+            overflow-x: hidden;
+        }
+
+        .overlay {
+            background: url('https://source.unsplash.com/1920x1080/?galaxy') no-repeat center center fixed;
+            background-size: cover;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 50px;
+            animation: fadeIn 2s ease-out;
+        }
+
+        h1 {
+            font-size: 70px;
+            margin-bottom: 20px;
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.5), 0 0 20px rgba(255, 255, 255, 0.7);
+            animation: slideIn 2s ease-out;
+        }
+
+        p {
+            font-size: 22px;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            line-height: 1.5;
+            opacity: 0;
+            animation: fadeInText 2s forwards 1s;
+        }
+
+        .card-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            background-color: rgba(34, 34, 34, 0.9);
+            padding: 30px;
+            margin: 10px;
+            border-radius: 15px;
+            display: inline-block;
+            max-width: 350px;
+            box-shadow: 0 6px 12px rgba(255, 255, 255, 0.3);
+            transform: scale(0.95);
+            transition: transform 0.3s ease;
+            animation: slideUp 0.5s ease-out;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 18px rgba(255, 255, 255, 0.5);
+        }
+
+        .card h2 {
+            font-size: 28px;
+            margin-bottom: 15px;
+            color: #00bfff;
+            text-shadow: 1px 1px 5px rgba(255, 255, 255, 0.4);
+        }
+
+        .card p {
+            font-size: 18px;
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+
+        .card img {
+            width: 100%;
+            height: auto;
+            margin-top: 15px;
+            border-radius: 10px;
+        }
+
+        .button {
+            background-color: #28a745;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: all 0.3s ease-in-out;
+            box-shadow: 0 8px 15px rgba(0, 123, 255, 0.4);
+            margin-top: 15px;
+        }
+
+        .button:hover {
+            background-color: #218838;
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(0, 123, 255, 0.5);
+        }
+
+        .square {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 200px;
+            height: 150px;
+            background-color: rgba(0, 123, 255, 0.8);
+            box-shadow: 0 8px 15px rgba(0, 123, 255, 0.6);
+            border-radius: 15px;
+            animation: pulse 2s infinite;
+            padding: 10px;
+            text-align: center;
+            color: white;
+            font-size: 18px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .square h3 {
+            font-size: 22px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInText {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 0.8;
+            }
+            50% {
+                transform: scale(1.1);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 0.8;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay">
+        <h1>SKY BLACK</h1>
+        <p>O site mais avançado e estiloso do universo! Explore a escuridão e o poder do design com um toque moderno e tecnológico.</p>
+        <div class="card-container">
+            <div class="card">
+                <h2>Launcher</h2>
+                <p>Alguma descrição do Launcher.</p>
+                <img src="https://via.placeholder.com/350x150" alt="Imagem do Launcher">
+                <a href="index1.html" target="_blank"><button class="button">Comprar</button></a>
+            </div>
+            <div class="card">
+                <h2>Plugin</h2>
+                <p>Alguma descrição do Plugin.</p>
+                <img src="https://via.placeholder.com/350x150" alt="Imagem do Plugin">
+                <a href="https://www.exemplo.com/plugin" target="_blank"><button class="button">Comprar</button></a>
+            </div>
+            <div class="card">
+                <h2>Mods</h2>
+                <p>Alguma descrição dos Mods.</p>
+                <img src="https://via.placeholder.com/350x150" alt="Imagem dos Mods">
+                <a href="https://www.exemplo.com/mods" target="_blank"><button class="button">Comprar</button></a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Quadrado no canto superior direito com os nomes dos membros da staff -->
+    <div class="square">
+        <h3>Staff</h3>
+        <p>Black</p>
+        <p>Yonkai</p>
+    </div>
+</body>
+</html>

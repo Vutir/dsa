@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Venda de Launcher</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: black;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        /* Texto "Sky Black" no canto superior esquerdo */
+        .texto-sky {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 24px;
+            font-weight: bold;
+            color: #00bfff;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+        }
+
+        /* Imagem abaixo do texto "Sky Black" */
+        .imagem-canto {
+            position: absolute;
+            top: 60px; /* Ajustado para ficar abaixo do texto */
+            left: 20px;
+            width: 150px;
+            height: 150px;
+            background-image: url('https://via.placeholder.com/150'); /* Substitua pelo link da imagem */
+            background-size: cover;
+            background-position: center;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+        }
+
+        /* Canto superior direito (estoque e pagamento) */
+        .info {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 300px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .quadrado-info {
+            background-color: #000; /* Fundo preto */
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid #888; /* Borda cinza e fina */
+            text-align: center;
+        }
+
+        .quadrado-info h2 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #00bfff;
+        }
+
+        .pix-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .pix-container img {
+            width: 50px;
+            height: 50px;
+        }
+
+        /* Quadrado principal */
+        .venda {
+            background-color: #1c1c1c;
+            width: 400px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+            text-align: center;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border: 1px solid #888; /* Borda cinza e fina para o quadrado principal */
+        }
+
+        /* Valor + "Entrega Rápida" */
+        .preco-container {
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .entrega-rapida {
+            color: #00bfff;
+            font-size: 18px;
+        }
+
+        /* Quadrado do meio agora em VERTICAL (fundo preto e borda cinza fininha) */
+        .opcoes {
+            background-color: #000; /* Fundo preto */
+            padding: 15px;
+            border-radius: 10px;
+            margin: 15px 0;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            width: 100%;
+            border: 1px solid #888; /* Borda cinza e fina */
+        }
+
+        .opcao {
+            background-color: #333;
+            padding: 10px;
+            border-radius: 8px;
+            cursor: pointer;
+            text-align: center;
+            transition: 0.3s;
+            width: 100%;
+        }
+
+        .opcao:hover {
+            background-color: #555;
+        }
+
+        /* Botão de compra dentro de um quadrado */
+        .compra-container {
+            background-color: #000;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 15px;
+            width: 100%;
+            border: 1px solid #888; /* Borda cinza e fina */
+        }
+
+        .botao-compra {
+            background-color: #00bfff;
+            color: black;
+            padding: 10px;
+            border: none;
+            width: 100%;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .botao-compra:hover {
+            background-color: #0088cc;
+        }
+
+        /* Descrição agora ocupando toda a largura da tela */
+        .descricao {
+            position: absolute;
+            bottom: 20px;
+            left: 0;
+            width: 100%; /* Agora ocupa toda a largura da tela */
+            background-color: #000;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: left;
+            border: 1px solid #888;
+            font-size: 18px;
+            overflow-y: auto;
+            color: #fff;
+            line-height: 1.6;
+        }
+
+        /* Título "Entrega Rápida" em cima do quadrado do meio */
+        .entrega-rapida-container {
+            font-size: 18px;
+            color: #00bfff;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        /* Organização das descrições embaixo uma da outra */
+        .descricao p {
+            margin-bottom: 10px; /* Espaçamento entre cada descrição */
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Texto "Sky Black" no canto superior esquerdo -->
+    <div class="texto-sky">Sky Black</div>
+
+    <!-- Imagem abaixo do texto "Sky Black" -->
+    <div class="imagem-canto"></div>
+
+    <!-- Canto superior direito -->
+    <div class="info">
+        <!-- Estoque -->
+        <div class="quadrado-info">
+            <h2>Estoque</h2>
+            <p>Disponível: <span id="estoque">10</span></p>
+        </div>
+
+        <!-- Forma de Pagamento -->
+        <div class="quadrado-info">
+            <h2>Forma de Pagamento</h2>
+            <div class="pix-container">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Pix_Logo_-_branco.png/640px-Pix_Logo_-_branco.png" alt="Pix">
+                <p>Pix</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quadrado principal da venda -->
+    <div class="venda">
+        <!-- Título "Entrega Rápida" em cima do quadrado do meio -->
+        <div class="entrega-rapida-container">
+            Entrega Rápida
+        </div>
+
+        <!-- Preço + "Entrega Rápida" -->
+        <div class="preco-container">
+            R$ <span id="preco">50,00</span>
+        </div>
+
+        <!-- Quadrado com as opções de Launcher (agora em VERTICAL) -->
+        <div class="opcoes">
+            <div class="opcao" onclick="selecionarLauncher(50, 'Launcher Simples')">Launcher Simples</div>
+            <div class="opcao" onclick="selecionarLauncher(100, 'Launcher Avançado')">Launcher Avançado</div>
+        </div>
+
+        <!-- Quadrado do botão de compra -->
+        <div class="compra-container">
+            <button class="botao-compra" onclick="comprar()">Comprar Agora</button>
+        </div>
+    </div>
+
+    <!-- Descrição agora ocupando toda a largura da tela -->
+    <div class="descricao">
+        <h2>Descrição</h2>
+        <p>✅Entrega Rapida no maximo 9 dias e 5 dias de garantia</p>
+        <p>✅Caso passe dos dias de garantia (reembolso) e o cliente pedir não iremos reembolsar</p>
+        <p>✅Caso Use o Cupom Sky Black Ganhará um desconto de 20 reais</p>
+    </div>
+
+    <script>
+        function selecionarLauncher(valor, nome) {
+            document.getElementById("preco").innerText = valor.toFixed(2);
+            document.querySelector(".entrega-rapida-container").innerText = "Entrega Rápida - " + nome;
+        }
+
+        function comprar() {
+            let preco = document.getElementById("preco").innerText;
+            alert("Compra realizada com sucesso! Total: R$ " + preco);
+        }
+    </script>
+</body>
+</html>
